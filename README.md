@@ -269,13 +269,14 @@ All 12 reports can be previewed and printed directly from the system.
 # 📁 Project Structure
 
 ```text
-warehouse-app/
-├── docker-compose.yml
+# Project Structure
 
-├── client/
+```text
+warehouse-app/
+├── client/                          # React frontend
 │   ├── src/
-│   │   ├── api/
-│   │   ├── components/
+│   │   ├── api/                     # API communication
+│   │   ├── components/              # Reusable UI components
 │   │   ├── pages/
 │   │   │   ├── productTypes/
 │   │   │   ├── units/
@@ -288,24 +289,38 @@ warehouse-app/
 │   │   │   ├── stockAdjustment/
 │   │   │   └── reports/
 │   │   ├── main.jsx
+│   │   ├── index.css
 │   │   └── utils.js
-│   └── package.json
-
-├── server/
+│   ├── package.json
+│   └── vite.config.js
+│
+├── server/                          # Express backend
 │   ├── src/
-│   │   ├── controllers/
-│   │   ├── routes/
-│   │   ├── services/
-│   │   ├── models/
-│   │   ├── db/
-│   │   └── app.js
-│   └── package.json
+│   │   ├── controllers/            # Request handlers
+│   │   ├── routes/                 # API routes
+│   │   ├── services/               # Business logic
+│   │   ├── models/                 # Data models
+│   │   ├── db/                     # Database connection
+│   │   ├── utils/                  # Utility functions
+│   │   └── app.js                  # Application entry point
+│   ├── package.json
+│   └── .env
+│
+├── database/                        # Database scripts
+│   ├── init/
+│   │   ├── 01_schema.sql
+│   │   └── 02_seed.sql
+│   ├── sql/
+│   │   ├── 001_schema.sql
+│   │   ├── 003_seed.sql
+│   │   └── sql_run.sql
+│   ├── compose.yaml
+│   └── setup_db.js
+│
+├── docker-compose.yml
+└── README.md
+```
 
-└── database/
-    ├── compose.yaml
-    ├── setup_db.js
-    ├── init/
-    └── sql/
 ```
 
 ---
