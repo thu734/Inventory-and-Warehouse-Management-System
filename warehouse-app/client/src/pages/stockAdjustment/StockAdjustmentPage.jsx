@@ -183,9 +183,6 @@ export default function StockAdjustmentPage() {
               {!lines.length && <tr><td colSpan={isNew ? 8 : 7} style={{ padding: 12, textAlign: 'center' }} className="text-muted">No line rows generated — click + Add Row</td></tr>}
             </tbody>
           </table>
-          <p style={{ fontSize: 12, color: '#888', marginTop: 10 }}>
-            * Current System Balance fields are read-only. Qty Adjust = Balance After Check − System Balance. Negative variances reflect down-adjustments[cite: 2186].
-          </p>
         </div>
 
         {error && <p className="error-text" style={{ color: 'red', marginTop: 12 }}>{error}</p>}
