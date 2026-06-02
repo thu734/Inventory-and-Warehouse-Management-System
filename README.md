@@ -49,13 +49,13 @@ This starts PostgreSQL and initializes the database schema and sample data.
 
 Database configuration:
 
-| Setting  | Value        |
-| -------- | ------------ |
-| Host     | localhost    |
-| Port     | 5432         |
-| Database | warehouse_db |
-| Username | postgres     |
-| Password | postgres     |
+| Setting  | Value         |
+| -------- | ------------  |
+| System   | PostgreSQL    |
+| Server   | db            |
+| Username | postgres      |
+| Password | postgres      |
+| Database | warehouse     |
 
 > Update the values above if your docker configuration uses different credentials.
 
