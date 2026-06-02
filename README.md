@@ -35,7 +35,27 @@ Recommended setup:
 3. Run the frontend client
 
 ---
+---
 
+# 🐳 Run Entire Application with Docker
+
+To run database, backend, and frontend together:
+
+```bash
+# Wipes out all new transactions and resets back to the original assignment seeds
+docker-compose down -v
+docker-compose up --build
+```
+
+Useful commands:
+
+```bash
+docker compose ps
+docker compose logs -f
+docker compose down
+```
+
+---
 ## Step 1: Start the Database
 
 Navigate to the database folder:
@@ -114,27 +134,7 @@ Configure API URL if needed:
 VITE_API_BASE=http://localhost:4000
 ```
 
----
 
-# 🐳 Run Entire Application with Docker
-
-To run database, backend, and frontend together:
-
-```bash
-# Wipes out all new transactions and resets back to the original assignment seeds
-docker-compose down -v
-docker-compose up --build
-```
-
-Useful commands:
-
-```bash
-docker compose ps
-docker compose logs -f
-docker compose down
-```
-
----
 
 # 🎯 Features
 
