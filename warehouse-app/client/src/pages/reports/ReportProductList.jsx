@@ -18,7 +18,6 @@ export default function ReportProductList() {
     <div>
       <div className="page-header"><span className="page-title">#01 — Product List</span></div>
       <div className="report-filter">
-        <p>Product Report Filter</p>
         <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', alignItems: 'flex-end' }}>
           <div className="form-group">
             <label>Product Type</label>
