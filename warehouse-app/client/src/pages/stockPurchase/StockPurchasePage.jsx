@@ -78,9 +78,34 @@ export default function StockPurchasePage() {
   return (
     <div>
       <div className="page-header">
-        <span className="page-title">{isNew ? 'New Stock Purchase' : `Stock Record — ${id}`}</span>
-        {!isNew && <button className="btn-secondary" onClick={() => nav('/stock/purchase')}>Back</button>}
-      </div>
+  <span className="page-title">
+    {isNew ? 'New Stock Purchase' : `Stock Record — ${id}`}
+  </span>
+
+  {!isNew && (
+    <>
+      <button
+        className="btn-primary"
+        style={{ marginRight: 8 }}
+        onClick={() =>
+          window.open(
+            `/reports/receiving-voucher?stock_no=${id}`,
+            '_blank'
+          )
+        }
+      >
+        Print
+      </button>
+
+      <button
+        className="btn-secondary"
+        onClick={() => nav('/stock/purchase')}
+      >
+        Back
+      </button>
+    </>
+  )}
+</div>
       <div style={{ background: 'white', padding: 24, borderRadius: 8 }}>
         {!isNew && <div className="form-row"><div className="form-group"><label>Stock No</label><input value={id} disabled /></div></div>}
         <div className="form-row">
@@ -182,21 +207,6 @@ export default function StockPurchasePage() {
 
         {error && <p className="error-text" style={{ color: 'red', marginTop: 12 }}>{error}</p>}
               <div style={{ display: 'flex', gap: 8, justifyContent: 'flex-end', marginTop: 16 }}>
-
-                {!isNew && (
-                  <button
-                    type="button"
-                    className="btn-primary"
-                    onClick={() =>
-                      window.open(
-                        `/reports/receiving-voucher?stock_no=${id}`,
-                        '_blank'
-                      )
-                    }
-                  >
-                    Print
-                  </button>
-                )}
 
                 <button
                   type="button"
