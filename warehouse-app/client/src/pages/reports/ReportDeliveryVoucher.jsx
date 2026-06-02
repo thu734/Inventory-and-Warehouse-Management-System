@@ -66,7 +66,6 @@ export default function ReportDeliveryVoucher() {
       </div>
 
       <div className="report-filter">
-        <p>{voucherTitle}</p>
 
         <div
           style={{
