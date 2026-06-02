@@ -121,7 +121,9 @@ VITE_API_BASE=http://localhost:4000
 To run database, backend, and frontend together:
 
 ```bash
-docker compose up -d --build
+# Wipes out all new transactions and resets back to the original assignment seeds
+docker-compose down -v
+docker-compose up --build
 ```
 
 Useful commands:
