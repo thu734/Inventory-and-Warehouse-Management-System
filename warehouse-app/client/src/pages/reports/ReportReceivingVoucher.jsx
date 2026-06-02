@@ -67,7 +67,6 @@ export default function ReportReceivingVoucher() {
       </div>
 
       <div className="report-filter">
-        <p>{voucherTitle}</p>
 
         <div
           style={{
