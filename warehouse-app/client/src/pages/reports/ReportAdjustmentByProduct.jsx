@@ -23,10 +23,36 @@ export default function ReportAdjustmentByProduct() {
             <input type="number" value={f.limit} onChange={e => setF({ ...f, limit: e.target.value })} style={{ width: 70 }} min="1" />
           </div>
           <button className="btn-primary" onClick={run}>OK</button>
-          <button className="btn-secondary" onClick={cancel}>Cancel</button>
+
+{ran && rows.length > 0 && (
+  <button
+    className="btn-primary"
+    onClick={() => window.print()}
+  >
+    Print
+  </button>
+)}
+
+<button className="btn-secondary" onClick={cancel}>Cancel</button>
         </div>
       </div>
       {ran && (
+        <div id="adjustment-report-print-area">
+        <div className="print-header">
+  <h2>PRODUCT ADJUSTMENT SUMMARY REPORT</h2>
+
+  <p>
+    <strong>From Date:</strong> {f.date_from || 'Beginning'}
+  </p>
+
+  <p>
+    <strong>To Date:</strong> {f.date_to || 'Today'}
+  </p>
+
+  <p>
+    <strong>Top Records:</strong> {f.limit}
+  </p>
+</div>
         <table>
           <thead><tr><th>Product Code</th><th>Product Name</th><th>Qty Added</th><th>Qty Removed</th><th>Net Change</th><th>Vouchers Count</th></tr></thead>
           <tbody>
@@ -42,6 +68,7 @@ export default function ReportAdjustmentByProduct() {
             {!rows.length && <tr><td colSpan={6} className="text-center text-muted">No results</td></tr>}
           </tbody>
         </table>
+        </div>
       )}
     </div>
   )
