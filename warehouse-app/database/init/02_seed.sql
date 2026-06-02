@@ -241,3 +241,99 @@ INSERT INTO stock_adjustment_line(stock_no,product_code,unit_id,system_balance,c
 ('STK-A-013','PRD-003','U03',27.000, 25.000),
 ('STK-A-014','PRD-005','U01',80.000, 77.000),
 ('STK-A-015','PRD-009','U01',140.000,145.000);
+
+-- ── Sales Headers (STK-S-021 to STK-S-030) ──────────────────
+INSERT INTO stock_sales_header VALUES
+('STK-S-021','2026-01-08','WH-01','Sales','CUS-03'),
+('STK-S-022','2026-01-22','WH-02','Sales','CUS-07'),
+('STK-S-023','2026-02-05','WH-01','Sales','CUS-11'),
+('STK-S-024','2026-02-18','WH-03','Sales','CUS-04'),
+('STK-S-025','2026-03-03','WH-01','Sales','CUS-09'),
+('STK-S-026','2026-03-19','WH-02','Sales','CUS-12'),
+('STK-S-027','2026-04-02','WH-01','Sales','CUS-06'),
+('STK-S-028','2026-04-15','WH-03','Sales','CUS-14'),
+('STK-S-029','2026-05-07','WH-01','Sales','CUS-02'),
+('STK-S-030','2026-05-21','WH-02','Sales','CUS-08');
+
+-- ── Sales Line Items — 5 lines per header ────────────────────
+
+-- STK-S-021 | 2026-01-08 | Sunrise Electronics
+INSERT INTO stock_sales_line(stock_no,product_code,ref_so_no,quantity_out,quantity_in,unit_id,unit_price) VALUES
+('STK-S-021','PRD-006','SO-2026-001',4,   NULL,'U01',350.00),
+('STK-S-021','PRD-007','SO-2026-001',3,   NULL,'U01',480.00),
+('STK-S-021','PRD-009','SO-2026-001',20,  NULL,'U01',5.00),
+('STK-S-021','PRD-001','SO-2026-001',50,  NULL,'U01',2.50),
+('STK-S-021','PRD-005','SO-2026-001',15,  NULL,'U01',8.00);
+
+-- STK-S-022 | 2026-01-22 | Thai Industrial Group
+INSERT INTO stock_sales_line(stock_no,product_code,ref_so_no,quantity_out,quantity_in,unit_id,unit_price) VALUES
+('STK-S-022','PRD-008','SO-2026-002',2,   NULL,'U01',900.00),
+('STK-S-022','PRD-011','SO-2026-002',6,   NULL,'U01',200.00),
+('STK-S-022','PRD-014','SO-2026-002',1,   NULL,'U01',1200.00),
+('STK-S-022','PRD-012','SO-2026-002',3,   NULL,'U01',750.00),
+('STK-S-022','PRD-017','SO-2026-002',10,  NULL,'U01',450.00);
+
+-- STK-S-023 | 2026-02-05 | Horizon Builders
+INSERT INTO stock_sales_line(stock_no,product_code,ref_so_no,quantity_out,quantity_in,unit_id,unit_price) VALUES
+('STK-S-023','PRD-006','SO-2026-003',5,   NULL,'U01',350.00),
+('STK-S-023','PRD-002','SO-2026-003',30,  NULL,'U02',45.00),
+('STK-S-023','PRD-003','SO-2026-003',10,  NULL,'U03',120.00),
+('STK-S-023','PRD-004','SO-2026-003',50,  NULL,'U04',15.00),
+('STK-S-023','PRD-015','SO-2026-003',25,  NULL,'U04',20.00);
+
+-- STK-S-024 | 2026-02-18 | Delta Builders
+INSERT INTO stock_sales_line(stock_no,product_code,ref_so_no,quantity_out,quantity_in,unit_id,unit_price) VALUES
+('STK-S-024','PRD-014','SO-2026-004',2,   NULL,'U01',1200.00),
+('STK-S-024','PRD-008','SO-2026-004',3,   NULL,'U01',900.00),
+('STK-S-024','PRD-011','SO-2026-004',7,   NULL,'U01',200.00),
+('STK-S-024','PRD-016','SO-2026-004',5,   NULL,'U08',150.00),
+('STK-S-024','PRD-018','SO-2026-004',20,  NULL,'U10',85.00);
+
+-- STK-S-025 | 2026-03-03 | Vertex Solutions
+INSERT INTO stock_sales_line(stock_no,product_code,ref_so_no,quantity_out,quantity_in,unit_id,unit_price) VALUES
+('STK-S-025','PRD-007','SO-2026-005',4,   NULL,'U01',480.00),
+('STK-S-025','PRD-006','SO-2026-005',6,   NULL,'U01',350.00),
+('STK-S-025','PRD-012','SO-2026-005',5,   NULL,'U01',750.00),
+('STK-S-025','PRD-013','SO-2026-005',20,  NULL,'U05',25.00),
+('STK-S-025','PRD-010','SO-2026-005',30,  NULL,'U05',30.00);
+
+-- STK-S-026 | 2026-03-19 | Apex Electronics
+INSERT INTO stock_sales_line(stock_no,product_code,ref_so_no,quantity_out,quantity_in,unit_id,unit_price) VALUES
+('STK-S-026','PRD-014','SO-2026-006',3,   NULL,'U01',1200.00),
+('STK-S-026','PRD-012','SO-2026-006',4,   NULL,'U01',750.00),
+('STK-S-026','PRD-008','SO-2026-006',2,   NULL,'U01',900.00),
+('STK-S-026','PRD-017','SO-2026-006',8,   NULL,'U01',450.00),
+('STK-S-026','PRD-019','SO-2026-006',15,  NULL,'U09',110.00);
+
+-- STK-S-027 | 2026-04-02 | Golden Parts
+INSERT INTO stock_sales_line(stock_no,product_code,ref_so_no,quantity_out,quantity_in,unit_id,unit_price) VALUES
+('STK-S-027','PRD-001','SO-2026-007',100, NULL,'U01',2.50),
+('STK-S-027','PRD-002','SO-2026-007',20,  NULL,'U02',45.00),
+('STK-S-027','PRD-005','SO-2026-007',30,  NULL,'U01',8.00),
+('STK-S-027','PRD-009','SO-2026-007',40,  NULL,'U01',5.00),
+('STK-S-027','PRD-020','SO-2026-007',10,  NULL,'U05',95.00);
+
+-- STK-S-028 | 2026-04-15 | Diamond Supply
+INSERT INTO stock_sales_line(stock_no,product_code,ref_so_no,quantity_out,quantity_in,unit_id,unit_price) VALUES
+('STK-S-028','PRD-006','SO-2026-008',8,   NULL,'U01',350.00),
+('STK-S-028','PRD-007','SO-2026-008',5,   NULL,'U01',480.00),
+('STK-S-028','PRD-011','SO-2026-008',10,  NULL,'U01',200.00),
+('STK-S-028','PRD-016','SO-2026-008',8,   NULL,'U08',150.00),
+('STK-S-028','PRD-018','SO-2026-008',30,  NULL,'U10',85.00);
+
+-- STK-S-029 | 2026-05-07 | XYZ Manufacturing
+INSERT INTO stock_sales_line(stock_no,product_code,ref_so_no,quantity_out,quantity_in,unit_id,unit_price) VALUES
+('STK-S-029','PRD-014','SO-2026-009',4,   NULL,'U01',1200.00),
+('STK-S-029','PRD-008','SO-2026-009',3,   NULL,'U01',900.00),
+('STK-S-029','PRD-012','SO-2026-009',6,   NULL,'U01',750.00),
+('STK-S-029','PRD-013','SO-2026-009',25,  NULL,'U05',25.00),
+('STK-S-029','PRD-010','SO-2026-009',40,  NULL,'U05',30.00);
+
+-- STK-S-030 | 2026-05-21 | Pacific Trading
+INSERT INTO stock_sales_line(stock_no,product_code,ref_so_no,quantity_out,quantity_in,unit_id,unit_price) VALUES
+('STK-S-030','PRD-006','SO-2026-010',6,   NULL,'U01',350.00),
+('STK-S-030','PRD-007','SO-2026-010',4,   NULL,'U01',480.00),
+('STK-S-030','PRD-011','SO-2026-010',8,   NULL,'U01',200.00),
+('STK-S-030','PRD-017','SO-2026-010',12,  NULL,'U01',450.00),
+('STK-S-030','PRD-019','SO-2026-010',20,  NULL,'U09',110.00);
+
