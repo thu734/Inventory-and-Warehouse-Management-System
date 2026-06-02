@@ -28,16 +28,9 @@ docker --version
 
 # 🚀 Quick Start (Local Development)
 
-Recommended setup:
-
-1. Start PostgreSQL database with Docker
-2. Run the backend server
-3. Run the frontend client
-
----
 ---
 
-# 🐳 Run Entire Application with Docker
+# 🐳 Run Entire Application with Docker (Recommend)
 
 To run database, backend, and frontend together:
 
