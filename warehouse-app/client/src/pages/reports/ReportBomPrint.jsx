@@ -20,7 +20,6 @@ export default function ReportBomPrint() {
     <div>
       <div className="page-header"><span className="page-title">#02 — BOM Detail Report</span></div>
       <div className="report-filter">
-        <p>BOM Detail Report Filter</p>
         <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', alignItems: 'flex-end' }}>
           <div className="form-group">
             <label>Product Code</label>
