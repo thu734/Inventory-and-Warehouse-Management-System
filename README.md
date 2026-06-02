@@ -54,7 +54,6 @@ docker compose down
 Navigate to the database folder:
 
 ```bash
-cd database
 docker compose up -d
 ```
 
