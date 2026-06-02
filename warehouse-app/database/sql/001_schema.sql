@@ -1,7 +1,5 @@
--- ============================================================
 -- Inventory and Warehouse Management System
 -- Schema only — runs on first container start
--- ============================================================
 
 -- Drop tables in reverse FK order
 DROP TABLE IF EXISTS stock_adjustment_line CASCADE;
@@ -18,7 +16,7 @@ DROP TABLE IF EXISTS warehouse CASCADE;
 DROP TABLE IF EXISTS supplier CASCADE;
 DROP TABLE IF EXISTS customer CASCADE;
 
--- ── Lookup tables ────────────────────────────────────────────
+--  Lookup tables 
 
 CREATE TABLE product_type (
   type_id   VARCHAR(10) PRIMARY KEY,
@@ -48,7 +46,7 @@ CREATE TABLE customer (
   contact_info  VARCHAR(200)
 );
 
--- ── Product & BOM ────────────────────────────────────────────
+-- Product & BOM 
 
 CREATE TABLE product (
   product_code VARCHAR(20)     PRIMARY KEY,
@@ -73,8 +71,7 @@ CREATE TABLE bill_of_materials (
   unit_price      DECIMAL(10,2)  NOT NULL CHECK (unit_price >= 0)
 );
 
--- ── Stock Purchase ───────────────────────────────────────────
-
+-- Stock Purchase 
 CREATE TABLE stock_header (
   stock_no     VARCHAR(20) PRIMARY KEY,
   stock_date   DATE        NOT NULL,
@@ -100,8 +97,7 @@ CREATE TABLE stock_purchase_line (
   unit_price   DECIMAL(10,2) NOT NULL CHECK (unit_price >= 0)
 );
 
--- ── Stock Sales ──────────────────────────────────────────────
-
+--  Stock Sales 
 CREATE TABLE stock_sales_header (
   stock_no     VARCHAR(20) PRIMARY KEY,
   stock_date   DATE        NOT NULL,
@@ -127,8 +123,7 @@ CREATE TABLE stock_sales_line (
   unit_price   DECIMAL(10,2) NOT NULL CHECK (unit_price >= 0)
 );
 
--- ── Stock Adjustment ─────────────────────────────────────────
-
+-- Stock Adjustment 
 CREATE TABLE stock_adjustment_header (
   stock_no               VARCHAR(20)  PRIMARY KEY,
   stock_date             DATE         NOT NULL,
