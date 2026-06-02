@@ -41,10 +41,44 @@ export default function ReportStockCard() {
             </select>
           </div>
           <button className="btn-primary" onClick={run}>OK</button>
-          <button className="btn-secondary" onClick={cancel}>Cancel</button>
+
+{ran && rows.length > 0 && (
+  <button
+    className="btn-primary"
+    onClick={() => window.print()}
+  >
+    Print
+  </button>
+)}
+
+<button className="btn-secondary" onClick={cancel}>Cancel</button>
         </div>
       </div>
       {ran && (
+        <div id="stock-card-print-area">
+        <div className="print-header">
+  <h2>STOCK CARD REPORT</h2>
+
+  <p>
+    <strong>From Date:</strong> {f.date_from || 'Beginning'}
+  </p>
+
+  <p>
+    <strong>To Date:</strong> {f.date_to || 'Today'}
+  </p>
+
+  <p>
+    <strong>Warehouse:</strong> {
+      warehouses.find(w => w.warehouse_id === f.warehouse_id)?.warehouse_name || 'All Warehouses'
+    }
+  </p>
+
+  <p>
+    <strong>Product:</strong> {
+      products.find(p => p.product_code === f.product_code)?.product_name || 'All Products'
+    }
+  </p>
+</div>
         <table>
           <thead><tr><th>Date</th><th>Stock No</th><th>Warehouse</th><th>Product Code</th><th>Product Name</th><th>Reason</th><th>Qty IN</th><th>Qty OUT</th></tr></thead>
           <tbody>
@@ -58,6 +92,7 @@ export default function ReportStockCard() {
             {!rows.length && <tr><td colSpan={8} className="text-center text-muted">No results</td></tr>}
           </tbody>
         </table>
+        </div>
       )}
     </div>
   )
