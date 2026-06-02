@@ -1,6 +1,4 @@
--- ============================================================
 -- Seed data — realistic test data for all reports
--- ============================================================
 
 -- Product Types
 INSERT INTO product_type VALUES
@@ -113,7 +111,7 @@ INSERT INTO bill_of_materials(product_code,material_code,quantity_needed,unit_id
 ('PRD-014','PRD-010',2.000,'U05',30.00),
 ('PRD-014','PRD-013',1.500,'U05',25.00);
 
--- ── Purchase Stock Headers ───────────────────────────────────
+-- Purchase Stock Headers 
 INSERT INTO stock_header VALUES
 ('STK-P-001','2025-01-05','WH-01','Purchase','SUP-01'),
 ('STK-P-002','2025-01-08','WH-01','Purchase','SUP-02'),
@@ -160,7 +158,7 @@ INSERT INTO stock_purchase_line(stock_no,product_code,ref_po_no,quantity_in,quan
 ('STK-P-019','PRD-019','PO-2025-017',200,NULL,'U09',110.00),
 ('STK-P-020','PRD-020','PO-2025-018',60, NULL,'U05',95.00);
 
--- ── Sales Stock Headers ──────────────────────────────────────
+-- Sales Stock Headers 
 INSERT INTO stock_sales_header VALUES
 ('STK-S-001','2025-01-10','WH-01','Sales','CUS-01'),
 ('STK-S-002','2025-01-12','WH-01','Sales','CUS-02'),
@@ -206,7 +204,7 @@ INSERT INTO stock_sales_line(stock_no,product_code,ref_so_no,quantity_out,quanti
 ('STK-S-019','PRD-011','SO-2025-017',4,   NULL,'U01',200.00),
 ('STK-S-020','PRD-014','SO-2025-018',2,   NULL,'U01',1200.00);
 
--- ── Stock Adjustment Headers ─────────────────────────────────
+-- Stock Adjustment Headers 
 INSERT INTO stock_adjustment_header(stock_no,stock_date,warehouse_id,reason,reason_for_adjustment) VALUES
 ('STK-A-001','2025-01-15','WH-01','Stock Adjustment','Routine monthly physical count'),
 ('STK-A-002','2025-01-20','WH-02','Stock Adjustment','Damaged goods found during inspection'),
@@ -242,7 +240,7 @@ INSERT INTO stock_adjustment_line(stock_no,product_code,unit_id,system_balance,c
 ('STK-A-014','PRD-005','U01',80.000, 77.000),
 ('STK-A-015','PRD-009','U01',140.000,145.000);
 
--- ── Sales Headers (STK-S-021 to STK-S-030) ──────────────────
+-- Sales Headers (STK-S-021 to STK-S-030) 
 INSERT INTO stock_sales_header VALUES
 ('STK-S-021','2026-01-08','WH-01','Sales','CUS-03'),
 ('STK-S-022','2026-01-22','WH-02','Sales','CUS-07'),
@@ -255,7 +253,7 @@ INSERT INTO stock_sales_header VALUES
 ('STK-S-029','2026-05-07','WH-01','Sales','CUS-02'),
 ('STK-S-030','2026-05-21','WH-02','Sales','CUS-08');
 
--- ── Sales Line Items — 5 lines per header ────────────────────
+-- Sales Line Items — 5 lines per header 
 
 -- STK-S-021 | 2026-01-08 | Sunrise Electronics
 INSERT INTO stock_sales_line(stock_no,product_code,ref_so_no,quantity_out,quantity_in,unit_id,unit_price) VALUES
