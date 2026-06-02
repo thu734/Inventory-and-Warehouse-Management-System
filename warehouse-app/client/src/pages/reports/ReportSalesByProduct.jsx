@@ -29,10 +29,22 @@ export default function ReportSalesByProduct() {
             </select>
           </div>
           <button className="btn-primary" onClick={run}>OK</button>
-          <button className="btn-secondary" onClick={cancel}>Cancel</button>
+
+{ran && (
+  <button
+    className="btn-primary"
+    onClick={() => window.print()}
+  >
+    Print
+  </button>
+)}
+
+<button className="btn-secondary" onClick={cancel}>Cancel</button>
         </div>
       </div>
       {ran && (
+        <div id="sales-by-product-print-area">
+
         <table>
           <thead><tr><th>Product Code</th><th>Product Name</th><th>Total Orders</th><th>Total Qty Sold</th><th>Total Sales Value</th></tr></thead>
           <tbody>
@@ -42,9 +54,43 @@ export default function ReportSalesByProduct() {
                 <td>{formatNumber(r.total_qty_sold, 3)}</td><td>{formatNumber(r.total_sales_value)}</td>
               </tr>
             ))}
+            {rows.length > 0 && (
+  <tr className="row-total">
+    <td colSpan={2} className="text-right">
+      TOTAL
+    </td>
+
+    <td>
+      {rows.reduce(
+        (sum, r) => sum + Number(r.total_orders || 0),
+        0
+      )}
+    </td>
+
+    <td>
+      {formatNumber(
+        rows.reduce(
+          (sum, r) => sum + Number(r.total_qty_sold || 0),
+          0
+        ),
+        3
+      )}
+    </td>
+
+    <td>
+      {formatNumber(
+        rows.reduce(
+          (sum, r) => sum + Number(r.total_sales_value || 0),
+          0
+        )
+      )}
+    </td>
+  </tr>
+)}
             {!rows.length && <tr><td colSpan={5} className="text-center text-muted">No results</td></tr>}
           </tbody>
         </table>
+        </div>
       )}
     </div>
   )
