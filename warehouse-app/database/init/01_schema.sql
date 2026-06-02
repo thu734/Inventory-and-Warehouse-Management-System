@@ -1,7 +1,5 @@
--- ============================================================
 -- Inventory and Warehouse Management System
 -- Schema only
--- ============================================================
 
 -- Drop tables in reverse FK order
 DROP TABLE IF EXISTS stock_adjustment_line CASCADE;
