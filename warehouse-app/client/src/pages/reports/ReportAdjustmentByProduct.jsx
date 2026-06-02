@@ -14,7 +14,6 @@ export default function ReportAdjustmentByProduct() {
     <div>
       <div className="page-header"><span className="page-title">#12 — Product Adjustment Summary by Period (Analysis)</span></div>
       <div className="report-filter">
-        <p>Product Adjustment Summary by Period</p>
         <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', alignItems: 'flex-end' }}>
           <div className="form-group"><label>From Date</label><input type="date" value={f.date_from} onChange={e => setF({ ...f, date_from: e.target.value })} /></div>
           <div className="form-group"><label>To Date</label><input type="date" value={f.date_to} onChange={e => setF({ ...f, date_to: e.target.value })} /></div>
