@@ -74,7 +74,7 @@ npm run dev
 Backend API:
 
 ```text
-http://localhost:4000
+http://localhost:3000/api/v1/products (if JSON return, the backend works)
 ```
 
 Configure database connection inside:
@@ -87,7 +87,7 @@ Example:
 
 ```env
 DATABASE_URL=postgresql://postgres:postgres@localhost:5432/warehouse_db
-PORT=4000
+PORT=3000
 ```
 
 ---
