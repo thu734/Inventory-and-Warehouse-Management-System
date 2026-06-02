@@ -1,6 +1,4 @@
--- ============================================================
 -- Seed data — realistic test data for all reports
--- ============================================================
 
 -- Product Types
 INSERT INTO product_type VALUES
@@ -113,7 +111,7 @@ INSERT INTO bill_of_materials(product_code,material_code,quantity_needed,unit_id
 ('PRD-014','PRD-010',2.000,'U05',30.00),
 ('PRD-014','PRD-013',1.500,'U05',25.00);
 
--- ── Purchase Stock Headers ───────────────────────────────────
+-- Purchase Stock Headers 
 INSERT INTO stock_header VALUES
 ('STK-P-001','2025-01-05','WH-01','Purchase','SUP-01'),
 ('STK-P-002','2025-01-08','WH-01','Purchase','SUP-02'),
@@ -160,7 +158,7 @@ INSERT INTO stock_purchase_line(stock_no,product_code,ref_po_no,quantity_in,quan
 ('STK-P-019','PRD-019','PO-2025-017',200,NULL,'U09',110.00),
 ('STK-P-020','PRD-020','PO-2025-018',60, NULL,'U05',95.00);
 
--- ── Sales Stock Headers ──────────────────────────────────────
+-- Sales Stock Headers 
 INSERT INTO stock_sales_header VALUES
 ('STK-S-001','2025-01-10','WH-01','Sales','CUS-01'),
 ('STK-S-002','2025-01-12','WH-01','Sales','CUS-02'),
@@ -206,7 +204,7 @@ INSERT INTO stock_sales_line(stock_no,product_code,ref_so_no,quantity_out,quanti
 ('STK-S-019','PRD-011','SO-2025-017',4,   NULL,'U01',200.00),
 ('STK-S-020','PRD-014','SO-2025-018',2,   NULL,'U01',1200.00);
 
--- ── Stock Adjustment Headers ─────────────────────────────────
+-- Stock Adjustment Headers 
 INSERT INTO stock_adjustment_header(stock_no,stock_date,warehouse_id,reason,reason_for_adjustment) VALUES
 ('STK-A-001','2025-01-15','WH-01','Stock Adjustment','Routine monthly physical count'),
 ('STK-A-002','2025-01-20','WH-02','Stock Adjustment','Damaged goods found during inspection'),
