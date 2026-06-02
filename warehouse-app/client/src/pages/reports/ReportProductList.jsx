@@ -28,10 +28,32 @@ export default function ReportProductList() {
             </select>
           </div>
           <button className="btn-primary" onClick={run}>OK</button>
-          <button className="btn-secondary" onClick={cancel}>Cancel</button>
+
+          {ran && (
+            <button
+            className="btn-primary"
+            onClick={() => window.print()}
+            >
+            Print
+            </button>
+          )}
+
+<button className="btn-secondary" onClick={cancel}>Cancel</button>
         </div>
       </div>
       {ran && (
+        <div id="product-list-print-area">
+
+    <div className="print-header">
+      <h2>PRODUCT LIST REPORT</h2>
+
+      <p>
+        <strong>Product Type:</strong>{' '}
+        {f.type_id
+          ? types.find(t => t.type_id === f.type_id)?.type_name
+          : 'All Types'}
+      </p>
+    </div>
         <table>
           <thead><tr><th>Code</th><th>Name</th><th>Type</th><th>Unit</th><th>Price</th><th>Has BOM</th></tr></thead>
           <tbody>
@@ -44,6 +66,7 @@ export default function ReportProductList() {
             {!rows.length && <tr><td colSpan={6} className="text-center text-muted">No results</td></tr>}
           </tbody>
         </table>
+        </div>
       )}
     </div>
   )
