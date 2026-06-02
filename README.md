@@ -70,8 +70,6 @@ Database configuration:
 | Password | postgres      |
 | Database | warehouse     |
 
-> Update the values above if your docker configuration uses different credentials.
-
 ---
 
 ## Step 2: Run the Backend Server
