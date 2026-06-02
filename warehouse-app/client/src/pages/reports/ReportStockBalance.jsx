@@ -22,7 +22,6 @@ export default function ReportStockBalance() {
     <div>
       <div className="page-header"><span className="page-title">#10 — Stock Balance Report</span></div>
       <div className="report-filter">
-        <p>Stock Balance Report</p>
         <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', alignItems: 'flex-end' }}>
           <div className="form-group"><label>As of Date</label><input type="date" value={f.as_of_date} onChange={e => setF({ ...f, as_of_date: e.target.value })} /></div>
           <div className="form-group">
