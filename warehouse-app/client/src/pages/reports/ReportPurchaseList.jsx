@@ -29,10 +29,47 @@ export default function ReportPurchaseList() {
             </select>
           </div>
           <button className="btn-primary" onClick={run}>OK</button>
-          <button className="btn-secondary" onClick={cancel}>Cancel</button>
+
+{ran && (
+  <button
+    className="btn-primary"
+    onClick={() => window.print()}
+  >
+    Print
+  </button>
+)}
+
+<button className="btn-secondary" onClick={cancel}>Cancel</button>
         </div>
       </div>
       {ran && (
+        <div id="purchase-list-print-area">
+
+    <div className="print-header">
+      <h2>PURCHASE STOCK RECORDS REPORT</h2>
+
+      <p>
+        <strong>From Date:</strong>{' '}
+        {f.date_from || 'All'}
+      </p>
+
+      <p>
+        <strong>To Date:</strong>{' '}
+        {f.date_to || 'All'}
+      </p>
+
+      <p>
+        <strong>Supplier:</strong>{' '}
+        {f.supplier_id
+          ? suppliers.find(s => s.supplier_id === f.supplier_id)?.supplier_name
+          : 'All Suppliers'}
+      </p>
+
+      <p>
+        <strong>Print Date:</strong>{' '}
+        {new Date().toLocaleDateString()}
+      </p>
+    </div>
         <table>
           <thead><tr><th>Stock No</th><th>Date</th><th>Warehouse</th><th>Reason</th><th>Supplier</th><th>Product</th><th>Ref PO</th><th>Qty IN</th><th>Qty OUT</th><th>Unit</th><th>Unit Price</th><th>Extended Price</th></tr></thead>
           <tbody>
@@ -48,6 +85,7 @@ export default function ReportPurchaseList() {
             {!rows.length && <tr><td colSpan={12} className="text-center text-muted">No results</td></tr>}
           </tbody>
         </table>
+        </div>
       )}
     </div>
   )
