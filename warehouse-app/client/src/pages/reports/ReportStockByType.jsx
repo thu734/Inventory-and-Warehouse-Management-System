@@ -28,10 +28,42 @@ export default function ReportStockByType() {
             </select>
           </div>
           <button className="btn-primary" onClick={run}>OK</button>
-          <button className="btn-secondary" onClick={cancel}>Cancel</button>
+
+{ran && (
+  <button
+    className="btn-primary"
+    onClick={() => window.print()}
+  >
+    Print
+  </button>
+)}
+
+<button className="btn-secondary" onClick={cancel}>Cancel</button>
         </div>
       </div>
       {ran && (
+        <div id="stock-by-type-print-area">
+
+    <div className="print-header">
+      <h2>STOCK MOVEMENT SUMMARY REPORT</h2>
+
+      <p>
+        <strong>As of Date:</strong>{' '}
+        {f.as_of_date || 'All Dates'}
+      </p>
+
+      <p>
+        <strong>Product Type:</strong>{' '}
+        {f.type_id
+          ? types.find(t => t.type_id === f.type_id)?.type_name
+          : 'All Types'}
+      </p>
+
+      <p>
+        <strong>Print Date:</strong>{' '}
+        {new Date().toLocaleDateString()}
+      </p>
+    </div>
         <table>
           <thead><tr><th>Product Type</th><th>Total Qty IN</th><th>Total Qty OUT</th><th>Net Stock Balance</th></tr></thead>
           <tbody>
@@ -46,6 +78,7 @@ export default function ReportStockByType() {
             {!rows.length && <tr><td colSpan={4} className="text-center text-muted">No results</td></tr>}
           </tbody>
         </table>
+        </div>
       )}
     </div>
   )
