@@ -52,10 +52,31 @@ export default function ReportSalesList() {
             </select>
           </div>
           <button className="btn-primary" onClick={run}>OK</button>
-          <button className="btn-secondary" onClick={cancel}>Cancel</button>
+
+{ran && (
+  <button
+    className="btn-primary"
+    onClick={() => window.print()}
+  >
+    Print
+  </button>
+)}
+
+<button className="btn-secondary" onClick={cancel}>Cancel</button>
         </div>
       </div>
       {ran && (
+         <div id="sales-list-print-area">
+
+    <div className="print-header">
+      <h2>SALES STOCK RECORDS REPORT</h2>
+
+      <p>
+        <strong>From Date:</strong>{' '}
+        {f.date_from || 'All'}
+      </p>
+      </div>
+
         <table>
           <thead><tr><th>Stock No</th><th>Date</th><th>Warehouse</th><th>Reason</th><th>Customer</th><th>Product</th><th>Ref SO</th><th>Qty OUT</th><th>Qty IN</th><th>Unit</th><th>Unit Price</th><th>Extended Price</th></tr></thead>
           <tbody>
@@ -68,9 +89,25 @@ export default function ReportSalesList() {
                 <td>{r.unit_name}</td><td>{formatNumber(r.unit_price)}</td><td>{formatNumber(r.extended_price)}</td>
               </tr>
             ))}
+            {rows.length > 0 && (
+  <tr className="row-total">
+    <td colSpan={11} className="text-right">
+      TOTAL SALES VALUE
+    </td>
+    <td>
+      {formatNumber(
+        rows.reduce(
+          (sum, r) => sum + Number(r.extended_price || 0),
+          0
+        )
+      )}
+    </td>
+  </tr>
+)}
             {!rows.length && <tr><td colSpan={12} className="text-center text-muted">No results</td></tr>}
           </tbody>
         </table>
+        </div>
       )}
     </div>
   )
