@@ -34,10 +34,32 @@ export default function ReportBomPrint() {
             <input value={selected?.product_name || ''} disabled style={{ background: '#ddd' }} />
           </div>
           <button className="btn-primary" onClick={run}>OK</button>
-          <button className="btn-secondary" onClick={cancel}>Cancel</button>
+
+{ran && rows.length > 0 && (
+  <button
+    className="btn-primary"
+    onClick={() => window.print()}
+  >
+    Print
+  </button>
+)}
+
+<button className="btn-secondary" onClick={cancel}>Cancel</button>
         </div>
       </div>
       {ran && (
+        <div id="bom-print-area">
+          <div className="print-header">
+    <h2>BILL OF MATERIALS REPORT</h2>
+
+    <p>
+      <strong>Product Code:</strong> {selected?.product_code}
+    </p>
+
+    <p>
+      <strong>Product Name:</strong> {selected?.product_name}
+    </p>
+  </div>
         <table>
           <thead><tr><th>No</th><th>Material Code</th><th>Material Name</th><th>Qty Needed</th><th>Unit</th><th>Unit Price</th><th>Total Value</th></tr></thead>
           <tbody>
@@ -52,6 +74,7 @@ export default function ReportBomPrint() {
             {rows.length > 0 && <tr className="row-total"><td colSpan={6} className="text-right">TOTAL BOM COST</td><td>{total.toFixed(2)}</td></tr>}
           </tbody>
         </table>
+        </div>
       )}
     </div>
   )
