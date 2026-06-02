@@ -82,7 +82,29 @@ export default function StockSalesPage() {
     <div>
       <div className="page-header">
         <span className="page-title">{isNew ? 'New Stock Sales' : `Stock Record — ${id}`}</span>
-        {!isNew && <button className="btn-secondary" onClick={() => nav('/stock/sales')}>Back</button>}
+        {!isNew && (
+          <>
+            <button
+              className="btn-primary"
+              style={{ marginRight: 8 }}
+              onClick={() =>
+                window.open(
+                  `/reports/delivery-voucher?stock_no=${id}`,
+                  '_blank'
+                )
+              }
+            >
+              Print
+            </button>
+
+            <button
+              className="btn-secondary"
+              onClick={() => nav('/stock/sales')}
+            >
+              Back
+            </button>
+          </>
+        )}
       </div>
       <div style={{ background: 'white', padding: 24, borderRadius: 8 }}>
         {!isNew && <div className="form-row"><div className="form-group"><label>Stock No</label><input value={id} disabled /></div></div>}
@@ -177,7 +199,7 @@ export default function StockSalesPage() {
                   <td colSpan={isNew ? 7 : 6} style={{ padding: 8, textAlign: 'right' }}>TOTAL VALUE</td>
                   <td style={{ padding: 8 }}>{total.toFixed(2)}</td>
                   {isNew && <td></td>}
-                </tr>
+                </tr> 
               )}
             </tbody>
           </table>
