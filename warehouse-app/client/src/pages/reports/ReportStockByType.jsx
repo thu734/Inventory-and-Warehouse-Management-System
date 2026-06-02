@@ -17,7 +17,6 @@ export default function ReportStockByType() {
     <div>
       <div className="page-header"><span className="page-title">#03 — Stock Movement Summary by Product Type (Analysis)</span></div>
       <div className="report-filter">
-        <p>Stock Movement Summary Report</p>
         <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', alignItems: 'flex-end' }}>
           <div className="form-group"><label>As of Date</label><input type="date" value={f.as_of_date} onChange={e => setF({ ...f, as_of_date: e.target.value })} /></div>
           <div className="form-group">
