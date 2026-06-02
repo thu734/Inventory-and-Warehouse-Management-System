@@ -58,7 +58,7 @@ docker compose up -d
 ```
 
 This starts PostgreSQL and initializes the database schema and sample data.
-
+Adminer (web UI): http://localhost:8080
 Database configuration:
 
 | Setting  | Value         |
