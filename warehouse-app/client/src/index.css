@@ -437,3 +437,113 @@ button:active { transform: scale(0.97); }
   .modal { min-width: unset; width: 100%; }
   .form-row { flex-direction: column; }
 }
+
+@media print {
+
+  .sidebar {
+    display: none !important;
+  }
+
+  .report-filter {
+    display: none !important;
+  }
+
+  .page-header button {
+    display: none !important;
+  }
+
+  button {
+    display: none !important;
+  }
+
+  .main {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  body {
+    background: white !important;
+  }
+
+}
+
+/* =======================================================
+   DELIVERY / RECEIVING VOUCHER PRINT STYLES
+   ======================================================= */
+
+.print-header {
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--primary);
+}
+
+.print-header h2 {
+  color: var(--primary);
+  margin-bottom: 8px;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.print-header p {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+.print-btn-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 16px;
+}
+
+.print-btn-container .btn-primary {
+  min-width: 140px;
+}
+
+#delivery-voucher-print-area {
+  background: white;
+  padding: 16px;
+}
+
+@media print {
+
+  .sidebar,
+  .report-filter,
+  .page-header button,
+  .print-btn-container {
+    display: none !important;
+  }
+
+  button {
+    display: none !important;
+  }
+
+  .main {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  body {
+    background: white !important;
+  }
+
+  #delivery-voucher-print-area {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .print-header {
+    border-bottom: 2px solid #000 !important;
+  }
+
+  table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+  }
+
+  th,
+  td {
+    border: 1px solid #000 !important;
+  }
+}
