@@ -181,10 +181,41 @@ export default function StockPurchasePage() {
         </div>
 
         {error && <p className="error-text" style={{ color: 'red', marginTop: 12 }}>{error}</p>}
-        <div style={{ display: 'flex', gap: 8, justifyContent: 'flex-end', marginTop: 16 }}>
-          <button type="button" className="btn-secondary" onClick={() => nav('/stock/purchase')}>{isNew ? 'Cancel' : 'Close'}</button>
-          {isNew && <button type="button" className="btn-primary" onClick={save}>Save</button>}
-        </div>
+              <div style={{ display: 'flex', gap: 8, justifyContent: 'flex-end', marginTop: 16 }}>
+
+                {!isNew && (
+                  <button
+                    type="button"
+                    className="btn-primary"
+                    onClick={() =>
+                      window.open(
+                        `/reports/receiving-voucher?stock_no=${id}`,
+                        '_blank'
+                      )
+                    }
+                  >
+                    Print
+                  </button>
+                )}
+
+                <button
+                  type="button"
+                  className="btn-secondary"
+                  onClick={() => nav('/stock/purchase')}
+                >
+                  {isNew ? 'Cancel' : 'Close'}
+                </button>
+
+                {isNew && (
+                  <button
+                    type="button"
+                    className="btn-primary"
+                    onClick={save}
+                  >
+                    Save
+                  </button>
+                )}
+              </div>
       </div>
     </div>
   )
